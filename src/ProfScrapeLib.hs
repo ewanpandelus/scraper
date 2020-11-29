@@ -32,8 +32,13 @@ scrapeProfessors = do
   
 countProfs::String -> Int
 countProfs[] = 0
-countProfs strs = length (filter (\x -> isInfixOf x "Professor") $ words strs)
+countProfs strs = length (filter (\x -> isProfessor x) $ words strs)
 
-        
---isProfessor :: String -> Bool 
---isProfessor str =  isInfixOf "Professor" str 
+isProfessor:: String -> Bool
+isProfessor str 
+   | isInfixOf "Assistant Professor" str  = False 
+   | isInfixOf "Professor" str = True 
+   | otherwise = False 
+
+
+
